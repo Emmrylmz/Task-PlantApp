@@ -15,16 +15,7 @@ interface IProps {
 
 const GettingStarted: FC<IProps> = ({ navigation }) => {
 
-  useEffect(() => {
-    const handleBackButton = () => {
-      return true; 
-    };
-    BackHandler.addEventListener("hardwareBackPress", handleBackButton);
-    return () => {
-      BackHandler.removeEventListener("hardwareBackPress", handleBackButton);
-    };
-  },[])
-
+  
   return (
     <View style={styles.body}>
       <FixedTop
