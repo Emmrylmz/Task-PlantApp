@@ -1,10 +1,16 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View } from 'react-native'
+import React, { useEffect } from 'react'
+import FixedTop from '../../components/FixedTop'
+import ImageContentTwo from '../../components/ImageContentTwo'
+import styles from './styles'
+
 
 const OnBoardingOne = () => {
+  
   return (
-    <View>
-      <Text>OnBoardingOne</Text>
+    <View style={styles.body}>
+      <FixedTop title="Take a photo to identify the plant!" />
+      <ImageContentTwo />
     </View>
   )
 }
