@@ -1,15 +1,23 @@
 import { View, Text } from "react-native";
-import React, { useMemo } from "react";
+import React, { FC, useMemo } from "react";
 import createStyles from "./styles";
 import styles from "./styles";
 
-const TermsAndPolicy = () => {
-    
+interface ITermsAndPolicy {
+  title: string;
+
+  componentStyle?: React.CSSProperties;
+  textStyle?: React.CSSProperties;
+}
+
+const TermsAndPolicy: FC<ITermsAndPolicy> = ({
+  title,
+  componentStyle,
+  textStyle,
+}) => {
   return (
-    <View style={styles.body}>
-      <Text style={styles.text}>
-        By tapping next, you are agreeing to PlantID Terms of Use & Privacy Policy.
-      </Text>
+    <View style={[styles.body, componentStyle]}>
+      <Text style={[styles.text, textStyle]}>{title}</Text>
     </View>
   );
 };

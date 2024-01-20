@@ -7,21 +7,25 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-nat
 const createStyles = () =>
   StyleSheet.create({
     body: {
-        top: hp(7),
+        top: hp(2),
         width:wp(89),
         height:hp(10),
         right:wp(4),
-        position:'relative'
+        position:'absolute',
+        zIndex:200,
     },
     header: {
       fontWeight:'400',
       textAlign:'left',
       fontSize:wp(7.7),
-      paddingBottom:hp(0.8),
       letterSpacing:0.07,
       color:Colors.MAIN_TEXT_COLOR,
       fontFamily:'Rubik', 
       
+
+    },
+    headerContainer:{
+      paddingBottom:hp(0.8),
 
     },
     subheader:{

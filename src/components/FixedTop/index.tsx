@@ -13,10 +13,10 @@ const FixedTop: FC<IFixedTop> = ({ title, subtitle, textBold }) => {
 
   return (
     <View style={styles.body}>
-      <View>
+      <View style={styles.headerContainer}>
         <Text style={styles.header}>{title}</Text>
       </View>
-      <View>
+      <View style={styles.subheaderContainer}>
         <Text style={styles.subheader}>{subtitle}</Text>
       </View>
     </View>

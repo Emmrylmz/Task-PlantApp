@@ -8,13 +8,12 @@ import {
 const styles = StyleSheet.create({
   body: {
     justifyContent: "center",
-    top: hp(10),
     alignItems: "center",
   },
   text: {
     textAlign: "center",
     fontSize: hp(1.5),
-    width: 232,
+    width: 'auto',
     color: Colors.LIGHT_GREY,
   },
 });

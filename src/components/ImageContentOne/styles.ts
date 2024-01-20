@@ -7,7 +7,8 @@ const createStyles = () =>
         body: {
             width:hp(100),
             height:wp(100),
-            top:hp(9),
+            top:hp(12),
+            left:wp(4),
             alignItems: 'center',
             flex:0.7,
             justifyContent:"center",
@@ -24,6 +25,17 @@ const createStyles = () =>
             bottom:hp(6),
             position:'absolute',
             zIndex:1,
+        },
+        Purple:{
+            position:'absolute',
+            zIndex:10
+        },
+        Blue:{
+            position:'absolute'
+
+        },
+        Orange:{
+            position:'absolute'
         }
 
     });

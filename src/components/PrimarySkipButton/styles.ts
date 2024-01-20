@@ -3,7 +3,7 @@ import {  widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-na
 import { Colors } from "../../constants/colors";
 
 const containerheight = Dimensions.get('window').height / 9
-const buttonWidth = Dimensions.get('window').width / 1.14
+export const buttonWidth = Dimensions.get('window').width / 1.14
 
 const createStyles = () =>
   StyleSheet.create({
