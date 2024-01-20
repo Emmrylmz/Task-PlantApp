@@ -1,13 +1,14 @@
 import { StyleSheet } from "react-native";
 
 
-const styles=
+const styles =
     StyleSheet.create({
-        body: {
-            width:'100%',
-            height:'100%',
-            alignItems: 'center'
-        },
-    });
+        body:{
+            flex:1,
+            justifyContent:"center",
+            alignItems:"center"
+        }
 
-export default styles;
+    })
+
+export default styles
