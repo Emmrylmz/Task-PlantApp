@@ -1,13 +1,13 @@
 import { View, Text, Button } from 'react-native'
 import React from 'react'
 import styles from './styles'
+import PrimarySkipButton from '../../components/PrimarySkipButton'
 
 const GettingStarted = () => {
     
   return (
     <View style={styles.body}>
-      <Text style={{fontSize:100}}>SUP</Text>
-
+    <PrimarySkipButton title='hey' onPress={() => alert("yo")}/>
     </View>
   )
 }
