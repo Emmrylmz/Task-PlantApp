@@ -25,9 +25,23 @@ export default function Screens() {
         }}
       >
         <MainStack.Screen name="GettingStarted" component={GettingStarted} />
-        <MainStack.Screen name="OnBoardingCarousel" component={OnBoardingCarousel} />
-        <MainStack.Screen name="PaywallScreen" component={PaywallScreen} />
-        <MainStack.Screen name="HomePage" component={HomePage} /> 
+        <MainStack.Screen
+          name="OnBoardingCarousel"
+          component={OnBoardingCarousel}
+          options={{
+            headerLeft: () => null,
+            gestureEnabled: false
+          // Hide the back button
+          }}
+        />
+        <MainStack.Screen
+          name="PaywallScreen"
+          component={PaywallScreen}
+          options={{
+            headerLeft: () => null, // Hide the back button
+          }}
+        />
+        <MainStack.Screen name="HomePage" component={HomePage} />
         {/* ... other screens as needed */}
       </MainStack.Navigator>
     </NavigationContainer>

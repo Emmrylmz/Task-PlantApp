@@ -1,16 +1,21 @@
-import React, { FC, useRef } from 'react';
-import { View, Dimensions, FlatList } from 'react-native';
-import OnBoardingOne from '../OnBoardingOne';
-import OnBoardingTwo from '../OnBoardingTwo';
-import FixedBottom from '../../components/FixedBottom';
-import PrimarySkipButton from '../../components/PrimarySkipButton';
-import Paginator from '../../components/Paginator';
-import { RootState } from '../../store';
-import { useDispatch, useSelector } from 'react-redux';
-import { NavigationProp, ParamListBase } from '@react-navigation/native';
-import { setCurrentPage } from '../../features/OnBoardingSlice';
+import React, { FC, useEffect, useRef } from "react";
+import { View, Dimensions, FlatList, BackHandler } from "react-native";
+import OnBoardingOne from "../OnBoardingOne";
+import OnBoardingTwo from "../OnBoardingTwo";
+import FixedBottom from "../../components/FixedBottom";
+import PrimarySkipButton from "../../components/PrimarySkipButton";
+import Paginator from "../../components/Paginator";
+import { RootState } from "../../store";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  NavigationProp,
+  ParamListBase,
+  StackActions,
+} from "@react-navigation/native";
+import { setCurrentPage } from "../../features/OnBoardingSlice";
 
-const { width } = Dimensions.get('window');
+
+const { width } = Dimensions.get("window");
 
 interface IProps {
   navigation: NavigationProp<ParamListBase>;
@@ -20,15 +25,10 @@ const OnBoardingCarousel: FC<IProps> = ({ navigation }) => {
   const currentPage = useSelector(
     (state: RootState) => state.onboarding.currentPage
   );
-  console.log(currentPage);
+
   const flatListRef = useRef<FlatList>(null);
   const totalOnboardingPages = 2;
   const dispatch = useDispatch();
-
-  const data = [
-    { id: '1', component: <OnBoardingOne /> },
-    { id: '2', component: <OnBoardingTwo /> },
-  ];
 
   const handleScroll = (event: any) => {
     const xOffset = event.nativeEvent.contentOffset.x;
@@ -47,18 +47,21 @@ const OnBoardingCarousel: FC<IProps> = ({ navigation }) => {
         flatListRef.current?.scrollToIndex({ index: nextPage });
       }
     } else {
-      navigation.navigate('PaywallScreen');
+      navigation.navigate("PaywallScreen");
     }
   };
 
-  const renderItem = ({ item }: { item: { id: string; component: React.ReactNode } }) => {
- 
-      return (
-      <View style={{width}}>
-        {item.component}
-      </View>
-      );
-      }
+  useEffect(() => {
+    dispatch(setCurrentPage(0))
+    const handleBackButton = () => {
+      return true; 
+    };
+    BackHandler.addEventListener("hardwareBackPress", handleBackButton);
+    return () => {
+      BackHandler.removeEventListener("hardwareBackPress", handleBackButton);
+    };
+  }, [dispatch]);
+
   return (
     <View style={{ flex: 1 }}>
       <FlatList
@@ -85,5 +88,18 @@ const OnBoardingCarousel: FC<IProps> = ({ navigation }) => {
     </View>
   );
 };
+
+const renderItem = ({
+  item,
+}: {
+  item: { id: string; component: React.ReactNode };
+}) => {
+  return <View style={{ width }}>{item.component}</View>;
+};
+
+const data = [
+  { id: "0", component: <OnBoardingOne /> },
+  { id: "1", component: <OnBoardingTwo /> },
+];
 
 export default OnBoardingCarousel;

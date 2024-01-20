@@ -1,11 +1,11 @@
-import { View } from "react-native";
-import React, { FC } from "react";
+import { BackHandler, View } from "react-native";
+import React, { FC, useEffect } from "react";
 import styles from "./styles";
 import PrimarySkipButton from "../../components/PrimarySkipButton";
 import FixedBottom from "../../components/FixedBottom";
 import FixedTop from "../../components/FixedTop";
 import ImageContentOne from "../../components/ImageContentOne";
-import { NavigationProp, ParamListBase } from "@react-navigation/native";
+import { NavigationProp, ParamListBase, StackActions } from "@react-navigation/native";
 import TermsAndPolicy from "../../components/TermsAndPolicy";
 
 
@@ -14,6 +14,16 @@ interface IProps {
 }
 
 const GettingStarted: FC<IProps> = ({ navigation }) => {
+
+  useEffect(() => {
+    const handleBackButton = () => {
+      return true; 
+    };
+    BackHandler.addEventListener("hardwareBackPress", handleBackButton);
+    return () => {
+      BackHandler.removeEventListener("hardwareBackPress", handleBackButton);
+    };
+  },[])
 
   return (
     <View style={styles.body}>

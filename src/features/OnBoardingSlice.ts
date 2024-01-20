@@ -8,7 +8,7 @@ interface OnboardingState {
 }
 
 const initialState: OnboardingState = {
-  currentPage: 0,
+  currentPage: 1,
   hasFinished: false,
 };
 
