@@ -52,7 +52,7 @@ const HomePage = () => {
 
       <FixedTop
         bodyStyle={{
-          height: heightPercentageToDP(120),
+          height: 'auto',
           top: heightPercentageToDP(30),
         }}
       >
