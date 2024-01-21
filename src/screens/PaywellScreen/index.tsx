@@ -23,31 +23,28 @@ const Overlay = "../../../assets/Svgs/page4/Overlay.png";
 const Scan = "../../../assets/Svgs/page4/Camera Line.png";
 const Cross = "../../../assets/Svgs/page4/X.png";
 
-const TermsAndPolicyStyleOne = {
-  textStyle: { fontSize: 5 },
-  componentStyle: { width: "90%" },
-};
-
 interface IProps {
   navigation: NavigationProp<ParamListBase>;
 }
 
 const PaywallScreen: FC<IProps> = ({ navigation }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const finishOnboarding = () => {
-    dispatch(setHasFinished(true))
-  }
+    dispatch(setHasFinished(true));
+  };
   return (
     <View style={styles.body}>
-      
+      <TouchableOpacity
+        onPress={finishOnboarding}
+        className="h-8 w-8 z-50 rounded-full opacity-50 bg-BLACK   absolute right-7 top-12"
+      >
+        <Image
+          source={require(Cross)} // Replace with the actual path to your image
+          className="w-3 h-3 absolute z-50 right-2.5 top-2.5" // Set the desired width and height
+        />
+      </TouchableOpacity>
       <View style={styles.topContainer}>
-      <TouchableOpacity onPress={finishOnboarding} className="h-8 w-8 z-50 rounded-full opacity-50 bg-BLACK   absolute right-7 top-12">
-          <Image
-            source={require(Cross)} // Replace with the actual path to your image
-            className="w-3 h-3 absolute z-50 right-2.5 top-2.5" // Set the desired width and height
-          />
-        </TouchableOpacity>
         <Image
           source={require(Sun)} // Replace with the actual path to your image
           className="w-full h-60 absolute z-30" // Set the desired width and height

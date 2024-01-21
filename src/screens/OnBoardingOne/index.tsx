@@ -17,21 +17,14 @@ const OnBoardingOne = () => {
           height: heightPercentageToDP(15),
         }}
       >
-        <View className="w-full h-full pt-3 ">
-          <View className=" flex-row items-center">
-            <Text className="font-Rubik text-3xl leading-7 tracking-normal font-medium text-MAIN_TEXT_COLOR">
-              Take a photo to
-            </Text>
-            <View className="flex-col ">
-              <Text className="font-Rubik text-3xl font-extrabold leading-7 pt-1  text-MAIN_TEXT_COLOR">
-                {" "}
-                identify
-              </Text>
-            </View>
-          </View>
-          <Text className="font-Rubik text-3xl leading-7 tracking-normal font-medium text-MAIN_TEXT_COLOR">
-            The plant!
+        <View className="flex flex-row ">
+          <Text className="text-4xl font-normal font-Rubik">
+            Take a photo to{" "}
           </Text>
+          <Text className="text-4xl font-bold">identify </Text>
+        </View>
+        <View className="flex flex-row ">
+          <Text className="text-4xl font-normal font-Rubik">plant </Text>
         </View>
       </FixedTop>
       <ImageContentTwo />

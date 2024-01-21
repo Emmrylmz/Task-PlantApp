@@ -9,7 +9,15 @@ const OnBoardingTwo = () => {
 
   return (
     <View style={styles.body}>
-      <FixedTop title="Get plant care guides" />
+      <FixedTop>
+      <View className="flex flex-row ">
+          <Text className="text-4xl font-normal font-Rubik">
+            Get plant{" "}
+          </Text>
+          <Text className="text-4xl font-bold">care guides </Text>
+        </View>
+
+      </FixedTop>
       <ImageContentThree /> 
     </View>
   );

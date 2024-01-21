@@ -3,7 +3,7 @@ import { View } from "react-native";
 import SubscriptionOption from "../SubscribeOptions/index"; // Assuming this is the correct path
 
 const SubscribeOptionsContainer = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("option1");
 
   const handleSelectOption = (optionId) => {
     setSelectedOption(selectedOption === optionId ? null : optionId);

@@ -14,7 +14,7 @@ const ImageContentThree = () => {
   const styles = useMemo(() => createStyles(), []);
   return (
     <View style={styles.body}>
-      <View style={styles.FlatIPhoneSVG} className="mt-16">
+      <View style={styles.FlatIPhoneSVG} className="mt-32">
         <FlatIphone
           height="100%"
           width="100%"
@@ -36,7 +36,7 @@ const ImageContentThree = () => {
       <View style={styles.BackgroundObjectSVG}>
         <Image
           source={require(background)} // Replace with the actual path to your image
-          style={{ width: "100%", height: "100%", position: "absolute" }} // Set the desired width and height
+          style={{ width: "100%", height: "90%", position: "absolute" }} // Set the desired width and height
         />
       </View>
     </View>

@@ -11,8 +11,8 @@ const createStyles = () =>
             position:"relative"
         },
         BackgroundObjectSVG:{
-            height:hp(70),
-            width:wp(98),
+            height:hp(50),
+            width:wp(100),
             zIndex:-100,
             bottom:hp(25),
             position:'absolute'
@@ -20,7 +20,7 @@ const createStyles = () =>
         },
         FlatIPhoneSVG:{
             width:wp(100),
-            height:hp(69),
+            height:hp(60),
             zIndex:1,
 
         },
@@ -29,7 +29,7 @@ const createStyles = () =>
             width:wp(100),
             zIndex:10,
             position:'absolute',
-            top:hp(8)
+            top:hp(19)
         }
 
     });
