@@ -23,7 +23,7 @@ const styles =
     },
     innerRow:{
       borderStyle:'solid',
-      backgroundColor:'red'
+      
 
     },
     textContainer: {

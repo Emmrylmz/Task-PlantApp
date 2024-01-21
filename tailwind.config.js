@@ -16,7 +16,11 @@ module.exports = {
       ORANGE:'#e79115',
       GREY:'#c4c4c4',
       LIGHT_GREY:'#597165',
-      MAIN_TEXT_COLOR:'#13231B'
+      MAIN_TEXT_COLOR:'#13231B',
+      PAYMENT_BACKGROUND:'#101E17'
+    },
+    fontFamily:{
+      Rubik:"Rubik"
     },
     backgroundImage: theme => ({
       'gradient-custom': `linear-gradient(to right, rgba(40, 175, 110, 0.168), rgba(40, 175, 110, 0))`,

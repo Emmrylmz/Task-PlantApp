@@ -1,29 +1,22 @@
-import { View, Text } from "react-native";
+import { View, Text, ViewStyle, StyleProp } from "react-native";
 import React, { FC, ReactElement, ReactNode, useMemo } from "react";
 import createStyles from "./styles";
+import { cloneChildrenWithKeys } from "../../utils/utils";
 
 interface IFixedBottomProps {
   children?: ReactNode | ReactNode[] | ReactElement | ReactElement[];
+  bodyStyle?:StyleProp<ViewStyle>;
 }
 
-const FixedBottom: FC<IFixedBottomProps> = ({ children }) => {
+const FixedBottom: FC<IFixedBottomProps> = ({ children,bodyStyle }) => {
   const styles = useMemo(() => createStyles(), []);
   return (
     <>
-      <View style={styles.body}>{cloneChildrenWithKeys(children)}</View>
+      <View style={[styles.body,bodyStyle]}>{cloneChildrenWithKeys(children)}</View>
     </>
   );
 };
 
-function cloneChildrenWithKeys(children: ReactNode | ReactNode[]) {
-  return (
-    children &&
-    (Array.isArray(children) && children.length > 0
-      ? React.Children.map(children, (child, index) =>
-          React.cloneElement(child as ReactElement, { key: `child-${index}` })
-        )
-      : React.cloneElement(children as ReactElement, { key: "child" }))
-  );
-}
+
 
 export default FixedBottom;
