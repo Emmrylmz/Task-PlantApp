@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList } from "react-native";
+import { View, Text, Image, FlatList, TouchableOpacity } from "react-native";
 import React, { FC } from "react";
 import styles from "./styles";
 import Plant from "../../../assets/Svgs/page4/Plant.svg";
@@ -18,7 +18,8 @@ import ScanSVG from "../../../assets/Svgs/Camera Line.svg";
 const Sun = "../../../assets/Svgs/page4/Sun.png";
 const Background = "../../../assets/Svgs/page4/Blur.png";
 const Overlay = "../../../assets/Svgs/page4/Overlay.png";
-const Scan = "../../../assets/Svgs/page4/Camera Line.png"
+const Scan = "../../../assets/Svgs/page4/Camera Line.png";
+const Cross = "../../../assets/Svgs/page4/X.png";
 
 const TermsAndPolicyStyleOne = {
   textStyle: { fontSize: 5 },
@@ -32,7 +33,14 @@ interface IProps {
 const PaywallScreen: FC<IProps> = ({ navigation }) => {
   return (
     <View style={styles.body}>
+      
       <View style={styles.topContainer}>
+      <TouchableOpacity onPress={() => navigation.navigate('HomePage')} className="h-8 w-8 z-50 rounded-full opacity-50 bg-BLACK   absolute right-7 top-12">
+          <Image
+            source={require(Cross)} // Replace with the actual path to your image
+            className="w-3 h-3 absolute z-50 right-2.5 top-2.5" // Set the desired width and height
+          />
+        </TouchableOpacity>
         <Image
           source={require(Sun)} // Replace with the actual path to your image
           className="w-full h-60 absolute z-30" // Set the desired width and height
@@ -51,9 +59,9 @@ const PaywallScreen: FC<IProps> = ({ navigation }) => {
       <View className="top-0">
         <PlantSVG className="w-full h-full absolute pt-5" />
         <Image
-        source={require(Scan)} // Replace with the actual path to your image
-        className="w-72 h-72 z-10 absolute top-15 left-10 opacity-80" // Set the desired width and height
-      />
+          source={require(Scan)} // Replace with the actual path to your image
+          className="w-72 h-72 z-10 absolute top-15 left-10 opacity-80" // Set the desired width and height
+        />
       </View>
 
       <View style={styles.bottomContainer}>
@@ -82,13 +90,13 @@ const PaywallScreen: FC<IProps> = ({ navigation }) => {
           />
           <View className="top-16 w-80">
             <TermsAndPolicy
-              textStyle={{fontSize:wp(2.1),color:'white', opacity:0.52}}
+              textStyle={{ fontSize: wp(2.1), color: "white", opacity: 0.52 }}
               title="After the 3-day free trial period you’ll be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable"
             />
           </View>
           <View className="w-40 top-20">
             <TermsAndPolicy
-              textStyle={{ fontSize: wp(3), color:"white",opacity:0.52}}
+              textStyle={{ fontSize: wp(3), color: "white", opacity: 0.52 }}
               title="Terms  •  Privacy  •  Restore"
             />
           </View>

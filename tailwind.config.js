@@ -20,7 +20,8 @@ module.exports = {
       PAYMENT_BACKGROUND:'#101E17',
       PREMIUM_MESSAGE:"#E5C990",
       PREMIUM_BACKGROUND:"#24201A",
-      CATEGORIES_BACKGROUND:'##F4F6F6'
+      CATEGORIES_BACKGROUND:'#F4F6F6',
+      NAVBAR_TEXT:"#979798"
     },
     fontFamily:{
       Rubik:"Rubik",

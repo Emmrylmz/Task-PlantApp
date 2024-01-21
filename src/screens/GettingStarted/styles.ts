@@ -16,7 +16,6 @@ const createStyles =
     },
     footerText: {
       top: hp(9),
-      width: wp(50),
     },
   });
 

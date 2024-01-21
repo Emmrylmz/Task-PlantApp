@@ -15,7 +15,6 @@ import {
   useGetQuestionsQuery,
 } from "../../features/apiSlice";
 import SearchBar from "../../components/SearchBar";
-import { buttonWidth } from "../../components/PrimarySkipButton/styles";
 import PremiumAvailable from "../../components/PremiumAvailable";
 import { heightPercentageToDP } from "react-native-responsive-screen";
 import NavbarHome from "../../components/NavbarHome";
@@ -54,36 +53,25 @@ const HomePage = () => {
           top: heightPercentageToDP(30),
         }}
       >
-          <PremiumAvailable />
+         </FixedTop>
+         
+            <ScrollView>
+ <PremiumAvailable />
           <View className="space-y-6 ">
             <Text className="font-Rubik font-semibold text-xl">
               Get Started
             </Text>
-
-            {/* <FlatList
-              data={dummy}
-              renderItem={renderQuesitons}
-              keyExtractor={(item) => item.id.toString()}
-              horizontal
-              showsHorizontalScrollIndicator={false} 
-            /> */}
-          </View>
-          <FlatList
-            data={dummy2.data}
-            renderItem={renderCategories}
-            keyExtractor={(item) => item.id.toString()}
-            vertical
-            showsVerticalScrollIndicator={false}
-            numColumns="2"
-          />
-      </FixedTop>
-
-      <FixedBottom
+            <FixedBottom
         bodyStyle={{
           bottom: 0,
           height: heightPercentageToDP(7),
         }}
-      >
+      ></FixedBottom>
+            </ScrollView>
+         
+     
+
+      
         <NavbarHome />
       </FixedBottom>
     </View>
@@ -104,13 +92,13 @@ const renderQuesitons = ({ item }) => (
 );
 
 const renderCategories = ({ item }) => (
-  <TouchableOpacity className="h-36 w-36 rounded-xl flex-1 mr-1 flex  mt-2 pl-1  ">
+  <TouchableOpacity className="h-36 w-36 rounded-xl flex-1 mr-1 flex bg-CATEGORIES_BACKGROUND mt-2 pl-1  ">
     <Image
       source={{ uri: item.image.url }}
       className="h-36 w-36 rounded-xl absolute "
     />
-    <View>
-      <Text className="font-Rubik text-BLACK text-md absolute w-full mt-24 p-2 px-2 font-bold  ">
+    <View className="w-24">
+      <Text className="font-Rubik text-BLACK text-md absolute w-full mt-6 p-2 px-2 font-bold  ">
         {item.title}
       </Text>
     </View>

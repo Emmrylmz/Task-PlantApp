@@ -14,7 +14,7 @@ const createStyles = () =>
         PlantSVG:{
             position:"relative",
             zIndex:5,
-            bottom:hp(25)
+            bottom:hp(20)
         },
         PhoneSVG:{
             position:'absolute',

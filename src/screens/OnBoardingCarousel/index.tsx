@@ -78,12 +78,16 @@ const OnBoardingCarousel: FC<IProps> = ({ navigation }) => {
       />
 
       <FixedBottom>
+        <View className="h-full ">
+
         <PrimarySkipButton
           title="Continue"
           disabled={false}
           onPress={handleScrollToNextPage}
         />
         <Paginator pages={3} currentPage={currentPage} />
+        </View>
+
       </FixedBottom>
     </View>
   );

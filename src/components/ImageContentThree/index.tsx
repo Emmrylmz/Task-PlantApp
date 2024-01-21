@@ -3,30 +3,41 @@ import React, { useMemo } from "react";
 import OverlaySVG from "../../../assets/Svgs/page3/Overlay.svg";
 import FlatIphone from "../../../assets/Svgs/page3/Flat iPhone.svg";
 import createStyles from "./style";
-import BackgroundObject from "../../../assets/Svgs/page3/BackgroundObject.svg"
+import BackgroundObject from "../../../assets/Svgs/page3/BackgroundObject.svg";
 import { LinearGradient } from "react-native-svg";
 
-const artwork = "../../../assets/Svgs/page3/Artwork.png"
-const background = "../../../assets/Svgs/page3/Object.png"
+const artwork = "../../../assets/Svgs/page3/Artwork.png";
+const background = "../../../assets/Svgs/page3/Object.png";
+const Overlay = "../../../assets/Svgs/page3/Overlay.png";
 
 const ImageContentThree = () => {
   const styles = useMemo(() => createStyles(), []);
   return (
     <View style={styles.body}>
-      <View style={styles.FlatIPhoneSVG}>
-        <FlatIphone height="100%" width="100%" style={{position:"absolute"}} />
+      <View style={styles.FlatIPhoneSVG} className="mt-16">
+        <FlatIphone
+          height="100%"
+          width="100%"
+          style={{ position: "absolute" }}
+        />
+        <View className="w-full h-full top-52">
+          <Image
+            source={require(Overlay)} // Replace with the actual path to your image
+            style={{ width: "100%", height: "100%", position: "absolute" }}
+          />
+        </View>
       </View>
       <View style={styles.Artwork}>
-      <Image
-        source={require(artwork)} // Replace with the actual path to your image
-        style={{width:'100%', height:'100%'}} // Set the desired width and height
-      />
+        <Image
+          source={require(artwork)} // Replace with the actual path to your image
+          style={{ width: "100%", height: "100%" }} // Set the desired width and height
+        />
       </View>
       <View style={styles.BackgroundObjectSVG}>
-      <Image
-        source={require(background)} // Replace with the actual path to your image
-        style={{width:'100%', height:'100%', position:'absolute'}} // Set the desired width and height
-      />
+        <Image
+          source={require(background)} // Replace with the actual path to your image
+          style={{ width: "100%", height: "100%", position: "absolute" }} // Set the desired width and height
+        />
       </View>
     </View>
   );
