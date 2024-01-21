@@ -14,6 +14,8 @@ import OverlaySVG from "../../../assets/Svgs/page4/Overlay.svg";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 import PlantSVG from "../../../assets/Svgs/page4/Plant.svg";
 import ScanSVG from "../../../assets/Svgs/Camera Line.svg";
+import { useDispatch } from "react-redux";
+import { setHasFinished } from "../../features/OnBoardingSlice";
 
 const Sun = "../../../assets/Svgs/page4/Sun.png";
 const Background = "../../../assets/Svgs/page4/Blur.png";
@@ -31,11 +33,16 @@ interface IProps {
 }
 
 const PaywallScreen: FC<IProps> = ({ navigation }) => {
+  const dispatch = useDispatch()
+
+  const finishOnboarding = () => {
+    dispatch(setHasFinished(true))
+  }
   return (
     <View style={styles.body}>
       
       <View style={styles.topContainer}>
-      <TouchableOpacity onPress={() => navigation.navigate('HomePage')} className="h-8 w-8 z-50 rounded-full opacity-50 bg-BLACK   absolute right-7 top-12">
+      <TouchableOpacity onPress={finishOnboarding} className="h-8 w-8 z-50 rounded-full opacity-50 bg-BLACK   absolute right-7 top-12">
           <Image
             source={require(Cross)} // Replace with the actual path to your image
             className="w-3 h-3 absolute z-50 right-2.5 top-2.5" // Set the desired width and height
@@ -86,7 +93,7 @@ const PaywallScreen: FC<IProps> = ({ navigation }) => {
         <FixedBottom>
           <PrimarySkipButton
             title="Try For 3 days"
-            onPress={() => navigation.navigate("HomePage")}
+            onPress={finishOnboarding}
           />
           <View className="top-16 w-80">
             <TermsAndPolicy

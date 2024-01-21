@@ -9,7 +9,7 @@ const createStyles = () =>
             height:'100%',
             alignItems: 'center',
             justifyContent:"center",
-            position:"relative"
+            position:"relative",
         },
         PlantSVG:{
             position:"relative",

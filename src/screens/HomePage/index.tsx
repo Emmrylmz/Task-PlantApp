@@ -53,25 +53,34 @@ const HomePage = () => {
           top: heightPercentageToDP(30),
         }}
       >
-         </FixedTop>
-         
-            <ScrollView>
- <PremiumAvailable />
-          <View className="space-y-6 ">
-            <Text className="font-Rubik font-semibold text-xl">
-              Get Started
-            </Text>
-            <FixedBottom
+        <PremiumAvailable />
+        <View className="space-y-6 ">
+          <Text className="font-Rubik font-semibold text-xl">Get Started</Text>
+          <FlatList
+            data={dummy}
+            renderItem={renderQuesitons}
+            keyExtractor={(item) => item.id.toString()}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          /> 
+          <FlatList
+          data={dummy2.data}
+          renderItem={renderCategories}
+          keyExtractor={(item) => item.id.toString()}
+          vertical
+          showsVerticalScrollIndicator={false}
+          numColumns="2"
+        />
+        </View>
+       
+      </FixedTop>
+
+      <FixedBottom
         bodyStyle={{
           bottom: 0,
           height: heightPercentageToDP(7),
         }}
-      ></FixedBottom>
-            </ScrollView>
-         
-     
-
-      
+      >
         <NavbarHome />
       </FixedBottom>
     </View>
