@@ -8,6 +8,8 @@ export interface ColorValue {
     LIGHT_GREY: string,
     MAIN_TEXT_COLOR:string,
     PAYMENT_BACKGROUND:string,
+    INPUT_PLACEHOLDER_COLOR:string,
+    PREMIUM_MESSAGE_COLOR:string
 }
 
 export const Colors: ColorValue = {
@@ -19,5 +21,7 @@ export const Colors: ColorValue = {
     GREY:'#c4c4c4',
     LIGHT_GREY:'#597165',
     MAIN_TEXT_COLOR:'#13231B',
-    PAYMENT_BACKGROUND:'#101E17'
+    PAYMENT_BACKGROUND:'#101E17',
+    INPUT_PLACEHOLDER_COLOR:'#AFAFAF',
+    PREMIUM_MESSAGE_COLOR:'#E5C990'
 }

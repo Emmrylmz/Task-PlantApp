@@ -17,13 +17,17 @@ module.exports = {
       GREY:'#c4c4c4',
       LIGHT_GREY:'#597165',
       MAIN_TEXT_COLOR:'#13231B',
-      PAYMENT_BACKGROUND:'#101E17'
+      PAYMENT_BACKGROUND:'#101E17',
+      PREMIUM_MESSAGE:"#E5C990",
+      PREMIUM_BACKGROUND:"#24201A",
+
     },
     fontFamily:{
-      Rubik:"Rubik"
+      Rubik:"Rubik",
+      Roboto:"Roboto"
     },
-    backgroundImage: theme => ({
-      'gradient-custom': `linear-gradient(to right, rgba(40, 175, 110, 0.168), rgba(40, 175, 110, 0))`,
+    backgroundImage: ({
+      'gradient-custom': `linear-gradient(to right, PREMIUM_BACKGROUND, PREMIUM_MESSAGE)`,
     }),
     extend: {
       gradientColorStopPositions: {

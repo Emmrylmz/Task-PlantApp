@@ -7,6 +7,8 @@ import { Text } from "react-native";
 export default function App() {
   const [fontsLoaded] = useFonts({
     Rubik: require('./assets/fonts/Rubik.ttf'),
+    Roboto: require('./assets/fonts/Roboto.ttf'),
+    
 
   })
   if(!fontsLoaded) return (<Text>Loading</Text>)
