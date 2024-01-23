@@ -18,17 +18,19 @@ import {
 } from "../../features/apiSlice";
 import SearchBar from "../../components/SearchBar";
 import PremiumAvailable from "../../components/PremiumAvailable";
-import { heightPercentageToDP } from "react-native-responsive-screen";
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from "react-native-responsive-screen";
 import NavbarHome from "../../components/NavbarHome";
-const { width } = Dimensions.get("window");
+import { buttonWidth } from "../../components/PrimarySkipButton/styles";
+import { Colors } from "../../constants/colors";
 
 const topImage = "../../../assets/Svgs/home/Images.png";
 
 const HomePage = () => {
-  const { data: questions } =
-    useGetQuestionsQuery();
-  const { data: categories } =
-    useGetCategoriesQuery();
+  const { data: questions } = useGetQuestionsQuery();
+  const { data: categories } = useGetCategoriesQuery();
 
   const merged = [
     { horizontal: true, title: "questions", data: questions ?? [] },
@@ -37,12 +39,22 @@ const HomePage = () => {
 
 
   return (
-    <View style={{ flex: 1 }}>
-      <Image
-        source={require(topImage)}
-        className="w-full  z-0 absolute top-36"
-      />
-      <FixedTop bodyStyle={{ height: heightPercentageToDP(19), top:heightPercentageToDP(5) }}>
+    <View style={{ flex: 1, backgroundColor: Colors.HOME_PAGE_HEADER }}>
+      <View style={{width:'full', height:heightPercentageToDP(28),backgroundColor: Colors.HOME_PAGE_HEADER, }}>
+        <Image
+          source={require(topImage)}
+          className="w-full absolute top-36 "
+          style={{ zIndex: 100 }}
+        />
+      </View>
+
+      <FixedTop
+        bodyStyle={{
+          height: heightPercentageToDP(19),
+          top: heightPercentageToDP(5),
+          zIndex: 100,
+        }}
+      >
         <View className="flex-col">
           <View className="pt-8">
             <Text className="text-xl font-Rubik leading-7 tracking-normal">
@@ -58,11 +70,16 @@ const HomePage = () => {
         </View>
       </FixedTop>
 
-      <SafeAreaView className="left-8 top-60 z-10 h-auto">
+      <SafeAreaView>
         <SectionList
           stickySectionHeadersEnabled={false}
           sections={merged}
-          numColumns={2}
+          contentContainerStyle={{
+            paddingBottom: heightPercentageToDP(50),
+            height: "auto",
+            left: widthPercentageToDP(8),
+
+          }}
           renderSectionHeader={({ section }) => (
             <>
               {section.horizontal ? (
@@ -105,10 +122,10 @@ const HomePage = () => {
 
 const RenderQuestions = ({ item }) => {
   return (
-    <TouchableOpacity className="h-40 w-56 rounded-xl  mr-1 ">
+    <TouchableOpacity className="h-40 w-56 rounded-xl mr-1 ">
       <Image
         source={{ uri: item.image_uri }}
-        className="h-40 w-56 rounded-xl absolute "
+        className="h-40 w-56 rounded-xl absolute"
       />
       <View>
         <Text className="font-Rubik text-WHITE text-md absolute w-full mt-24 p-2 px-2 font-bold  ">
@@ -121,7 +138,7 @@ const RenderQuestions = ({ item }) => {
 
 const RenderCategories = ({ item }) => {
   return (
-    <TouchableOpacity className="h-44 w-44 rounded-xl  bg-CATEGORIES_BACKGROUND mt-2   ">
+    <TouchableOpacity className="h-44 w-44 rounded-xl bg-CATEGORIES_BACKGROUND mt-2   ">
       <Image
         source={{ uri: item.image.url }}
         className="h-44 w-44 rounded-xl absolute "
@@ -134,7 +151,5 @@ const RenderCategories = ({ item }) => {
     </TouchableOpacity>
   );
 };
-
-
 
 export default HomePage;

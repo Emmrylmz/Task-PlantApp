@@ -21,7 +21,9 @@ module.exports = {
       PREMIUM_MESSAGE:"#E5C990",
       PREMIUM_BACKGROUND:"#24201A",
       CATEGORIES_BACKGROUND:'#F4F6F6',
-      NAVBAR_TEXT:"#979798"
+      NAVBAR_TEXT:"#979798",
+      HOME_PAGE_HEADER:'#f7f7f7'
+
     },
     fontFamily:{
       Rubik:"Rubik",

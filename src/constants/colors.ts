@@ -9,7 +9,8 @@ export interface ColorValue {
     MAIN_TEXT_COLOR:string,
     PAYMENT_BACKGROUND:string,
     INPUT_PLACEHOLDER_COLOR:string,
-    PREMIUM_MESSAGE_COLOR:string
+    PREMIUM_MESSAGE_COLOR:string,
+    HOME_PAGE_HEADER:string
 }
 
 export const Colors: ColorValue = {
@@ -23,5 +24,6 @@ export const Colors: ColorValue = {
     MAIN_TEXT_COLOR:'#13231B',
     PAYMENT_BACKGROUND:'#101E17',
     INPUT_PLACEHOLDER_COLOR:'#AFAFAF',
-    PREMIUM_MESSAGE_COLOR:'#E5C990'
+    PREMIUM_MESSAGE_COLOR:'#E5C990',
+    HOME_PAGE_HEADER:'#f7f7f7'
 }
