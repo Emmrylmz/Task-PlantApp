@@ -15,6 +15,7 @@ const OnBoardingOne = () => {
         bodyStyle={{
           width: buttonWidth,
           height: heightPercentageToDP(15),
+          top:heightPercentageToDP(9)
         }}
       >
         <View className="flex flex-row ">

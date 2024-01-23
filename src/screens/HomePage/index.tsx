@@ -25,9 +25,9 @@ const { width } = Dimensions.get("window");
 const topImage = "../../../assets/Svgs/home/Images.png";
 
 const HomePage = () => {
-  const { data: questions, isLoading: isLoadingQuestions } =
+  const { data: questions } =
     useGetQuestionsQuery();
-  const { data: categories, isLoading: isLoadingCategories } =
+  const { data: categories } =
     useGetCategoriesQuery();
 
   const merged = [
@@ -42,7 +42,7 @@ const HomePage = () => {
         source={require(topImage)}
         className="w-full  z-0 absolute top-36"
       />
-      <FixedTop bodyStyle={{ height: heightPercentageToDP(19) }}>
+      <FixedTop bodyStyle={{ height: heightPercentageToDP(19), top:heightPercentageToDP(5) }}>
         <View className="flex-col">
           <View className="pt-8">
             <Text className="text-xl font-Rubik leading-7 tracking-normal">
@@ -134,5 +134,7 @@ const RenderCategories = ({ item }) => {
     </TouchableOpacity>
   );
 };
+
+
 
 export default HomePage;

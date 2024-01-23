@@ -8,12 +8,12 @@ import { buttonWidth } from "../PrimarySkipButton/styles";
 const createStyles = () =>
   StyleSheet.create({
     body: {
-        top: hp(5),
+        top: hp(8),
         width:buttonWidth,
         height:hp(10),
         right:wp(4),
         position:'absolute',
-        zIndex:200,
+       
     }
   });
 
