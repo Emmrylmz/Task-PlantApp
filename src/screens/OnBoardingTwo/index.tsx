@@ -11,10 +11,10 @@ const OnBoardingTwo = () => {
     <View style={styles.body}>
       <FixedTop>
       <View className="flex flex-row ">
-          <Text className="text-4xl font-normal font-Rubik">
+          <Text className="text-3xl font-normal font-Rubik">
             Get plant{" "}
           </Text>
-          <Text className="text-4xl font-bold">care guides </Text>
+          <Text className="text-3xl font-bold">care guides </Text>
         </View>
 
       </FixedTop>

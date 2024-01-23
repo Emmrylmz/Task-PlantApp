@@ -18,13 +18,13 @@ const OnBoardingOne = () => {
         }}
       >
         <View className="flex flex-row ">
-          <Text className="text-4xl font-normal font-Rubik">
+          <Text className="text-3xl font-normal font-Rubik">
             Take a photo to{" "}
           </Text>
-          <Text className="text-4xl font-bold">identify </Text>
+          <Text className="text-3xl font-bold">identify </Text>
         </View>
         <View className="flex flex-row ">
-          <Text className="text-4xl font-normal font-Rubik">plant </Text>
+          <Text className="text-3xl font-normal font-Rubik">plant </Text>
         </View>
       </FixedTop>
       <ImageContentTwo />

@@ -6,6 +6,8 @@ import {
   FlatList,
   TouchableOpacity,
   SectionList,
+  Dimensions,
+  SafeAreaView,
 } from "react-native";
 import React from "react";
 import FixedBottom from "../../components/FixedBottom";
@@ -18,15 +20,21 @@ import SearchBar from "../../components/SearchBar";
 import PremiumAvailable from "../../components/PremiumAvailable";
 import { heightPercentageToDP } from "react-native-responsive-screen";
 import NavbarHome from "../../components/NavbarHome";
+const { width } = Dimensions.get("window");
 
 const topImage = "../../../assets/Svgs/home/Images.png";
+
 const HomePage = () => {
-  const { data: questions, isLoading: isLoadingQuestions } = useGetQuestionsQuery();
-  const { data: categories, isLoading: isLoadingCategories } = useGetCategoriesQuery();
+  const { data: questions, isLoading: isLoadingQuestions } =
+    useGetQuestionsQuery();
+  const { data: categories, isLoading: isLoadingCategories } =
+    useGetCategoriesQuery();
 
-  
+  const merged = [
+    { horizontal: true, title: "questions", data: questions ?? [] },
+    { title: "categories", data: categories?.data ?? [] },
+  ];
 
-  
 
   return (
     <View style={{ flex: 1 }}>
@@ -50,35 +58,38 @@ const HomePage = () => {
         </View>
       </FixedTop>
 
-      <FixedTop
-        bodyStyle={{
-          height: 'auto',
-          top: heightPercentageToDP(30),
-        }}
-      >
-        <ScrollView
-        showsVerticalScrollIndicator={false}>
-          <PremiumAvailable />
-          <Text className="font-Rubik font-semibold text-xl">Get Started</Text>
-          <FlatList
-            data={questions ?? []}
-            renderItem={renderQuestions}
-            keyExtractor={(item) => item.id.toString()}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            pagingEnabled={true}
-          />
-          <FlatList
-            data={categories?.data ?? []}
-            renderItem={renderCategories}
-            keyExtractor={(item) => item.id.toString()}
-            vertical
-            showsVerticalScrollIndicator={false}
-            numColumns="2"
-            pagingEnabled={true}
-          />
-        </ScrollView>
-      </FixedTop>
+      <SafeAreaView className="left-8 top-60 z-10 h-auto">
+        <SectionList
+          stickySectionHeadersEnabled={false}
+          sections={merged}
+          numColumns={2}
+          renderSectionHeader={({ section }) => (
+            <>
+              {section.horizontal ? (
+                <>
+                  <Text className="font-Rubik font-semibold text-xl ">
+                    Get Started
+                  </Text>
+
+                  <PremiumAvailable />
+                  <FlatList
+                    horizontal
+                    data={section.data}
+                    renderItem={({ item }) => <RenderQuestions item={item} />}
+                    showsHorizontalScrollIndicator={false}
+                  />
+                </>
+              ) : null}
+            </>
+          )}
+          renderItem={({ item, section }) => {
+            if (section.horizontal) {
+              return null;
+            }
+            return <RenderCategories item={item} />;
+          }}
+        />
+      </SafeAreaView>
 
       <FixedBottom
         bodyStyle={{
@@ -92,40 +103,36 @@ const HomePage = () => {
   );
 };
 
-const renderQuestions = ({ item }) => {
- 
-    return (
-      <TouchableOpacity className="h-40 w-56 rounded-xl flex-1 mr-1 flex relative  ">
-        <Image
-          source={{ uri: item.image_uri }}
-          className="h-40 w-56 rounded-xl absolute "
-        />
-        <View>
-          <Text className="font-Rubik text-WHITE text-md absolute w-full mt-24 p-2 px-2 font-bold  ">
-            {item.title}
-          </Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
+const RenderQuestions = ({ item }) => {
+  return (
+    <TouchableOpacity className="h-40 w-56 rounded-xl  mr-1 ">
+      <Image
+        source={{ uri: item.image_uri }}
+        className="h-40 w-56 rounded-xl absolute "
+      />
+      <View>
+        <Text className="font-Rubik text-WHITE text-md absolute w-full mt-24 p-2 px-2 font-bold  ">
+          {item.title}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
-
-const renderCategories = ({ item }) => {
- 
-    return (
-      <TouchableOpacity className="h-36 w-36 rounded-xl flex-1 mr-1 flex bg-CATEGORIES_BACKGROUND mt-2 pl-1  ">
-        <Image
-          source={{ uri: item.image.url }}
-          className="h-36 w-36 rounded-xl absolute "
-        />
-        <View className="w-24">
-          <Text className="font-Rubik text-BLACK text-md absolute w-full mt-6 p-2 px-2 font-bold  ">
-            {item.title}
-          </Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
-
+const RenderCategories = ({ item }) => {
+  return (
+    <TouchableOpacity className="h-44 w-44 rounded-xl  bg-CATEGORIES_BACKGROUND mt-2   ">
+      <Image
+        source={{ uri: item.image.url }}
+        className="h-44 w-44 rounded-xl absolute "
+      />
+      <View className="w-24">
+        <Text className="font-Rubik text-BLACK text-md absolute w-full mt-6 p-2 px-2 font-bold  ">
+          {item.title}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 export default HomePage;

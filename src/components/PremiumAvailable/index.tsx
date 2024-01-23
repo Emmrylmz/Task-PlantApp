@@ -8,7 +8,7 @@ import { heightPercentageToDP } from "react-native-responsive-screen";
 const PremiumAvailable = () => {
   return (
     <View style={{ width: buttonWidth }} className="pb-4">
-      <View className="flex-row space-x-3 border rounded-lg h-16 justify-center items-center bg-PAYMENT_BACKGROUND">
+      <View className="flex-row space-x-3 border rounded-lg h-16 justify-center items-center bg-PAYMENT_BACKGROUND my-2">
         <View className="h-16 w-16 flex justify-center pt-2 pl-2 ">
           <View className="absolute z-30 pl-11 pb-5">
             <Notification />
