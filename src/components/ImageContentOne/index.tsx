@@ -18,7 +18,7 @@ const ImageContentOne = () => {
     <View style={styles.body}>
       <View className="h-100 w-200">
         <Image
-          source={require(Background)} // Replace with the actual path to your image
+          source={require(Background)} 
           style={{ width: "100%", height: "100%", position: "absolute" }}
         />
       </View>
